@@ -11,3 +11,8 @@ It uses Chess.JS for the engine - https://github.com/jhlywa/chess.j
 - Added popup alerts for Checkmate and Draw
 - Made TSX version
 - Added try catch to prevent errors
+
+
+=== Play ===
+
+Load up localhost:3000/chessgametsx.tsx
