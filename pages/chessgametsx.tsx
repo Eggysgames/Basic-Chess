@@ -7,8 +7,11 @@ export default function PlayRandomMoveEngine() {
   const [game, setGame] = useState(new Chess());
 
   function makeAMove(move: any) {
+
+    if (!game.isDraw()) {
+
     try {
-    game.move(move);
+      game.move(move);
     }
     catch {
       console.log("Invalid Move")
@@ -18,9 +21,24 @@ export default function PlayRandomMoveEngine() {
     setGame(newGame);
   }
 
+    if (game.isCheckmate()) {
+      setTimeout(() => {
+        window.alert("Checkmate");
+      }, 200);
+    }
+
+    if (game.isDraw()) {
+      setTimeout(() => {
+        window.alert("Draw");
+      }, 200);
+
+    }
+
+  }
+
   function makeRandomMove() {
     const possibleMoves = game.moves();
-    if (!game.isGameOver() || !game.isDraw || possibleMoves.length === 0)
+    if (!game.isGameOver() || !game.isDraw || possibleMoves.length === 0) 
       return; // exit if the game is over
     const randomIndex = Math.floor(Math.random() * possibleMoves.length);
     makeAMove(possibleMoves[randomIndex]);
@@ -30,7 +48,7 @@ export default function PlayRandomMoveEngine() {
     const move = makeAMove({
       from: sourceSquare,
       to: targetSquare,
-      promotion: "q", // always promote to a queen for example simplicity
+      promotion: "q", // always promote to a queen for simplicity
     });
 
     // illegal move
@@ -41,13 +59,16 @@ export default function PlayRandomMoveEngine() {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <div style={{ width: '800px', height: '800px' }}>
+      <div style={{ width: '800px', height: '800px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ fontSize: '32px', fontWeight: 'bold', margin: 'auto' }}>Eggys Chessboard</div>
         <Chessboard
           position={game.fen()}
           onPieceDrop={onDrop}
+          areArrowsAllowed={true}
         />
       </div>
-      <div>CHESS</div>
     </div>
   );
+  
+  
 }
