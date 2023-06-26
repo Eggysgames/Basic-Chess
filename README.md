@@ -8,4 +8,6 @@ It uses Chess.JS for the engine - https://github.com/jhlywa/chess.j
 
 === Custom Changes === 
 
-Added popup alerts for Checkmate and Draw
+- Added popup alerts for Checkmate and Draw
+- Made TSX version
+- Added try catch to prevent errors
