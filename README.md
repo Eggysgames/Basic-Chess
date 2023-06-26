@@ -6,14 +6,19 @@ It uses React-Chessboard for the UI - https://www.npmjs.com/package/react-chessb
 
 It uses Chess.js for the engine - https://github.com/jhlywa/chess.js
 
+Main file found at pages/chessgame.tsx
 
 === Custom Changes === 
 
+- Uses mover variable to stop random move after illegal moves
 - Added alerts for checkmate and draw
 - Added logic to make random move after yours
 - Uses try/catch to prevent errors
-- Converted it to typescript
-- Works automatically
+- Converted it to Typescript
+- Works automatically out the box
+- Added console log for invalid moves
+
+
 
 === Play ===
 
