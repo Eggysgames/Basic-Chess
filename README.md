@@ -22,4 +22,8 @@ Main file found at pages/chessgame.tsx
 
 === Play ===
 
+npm install
+
+npm run dev
+
 Open up localhost:3000/chessgame.tsx
